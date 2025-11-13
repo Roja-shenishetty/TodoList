@@ -1,0 +1,136 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+}
+a{
+    text-decoration: none;
+    color:#A9927D;
+}
+.collapsible__header{
+    display: flex;
+    justify-content: space-between;
+    background-color:#98A886 ;
+}
+.collapsible__menu{
+    cursor: pointer;
+    filter:brightness(0)invert(1);
+}
+.collapsible__heading{
+    margin-top: 0;
+    font-size: 6vmin;
+    color:#fff;
+}
+.collapsible__content{
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.3s ;
+}
+.collapsible--expanded .collapsible__menu{
+    transform: scale(1.1);
+}
+.collapsible--expanded .collapsible__content{
+    max-height: 100vh;
+    opacity: 1;
+}
+.collapsible__list{
+    display:flex;
+    justify-content: right;
+}
+.list{
+    list-style: none;
+    display: flex;
+    font-size:1.5rem ;
+    color: #98A886;
+    cursor: pointer;
+    border-bottom: 1px solid #363457;
+}
+
+.imgContainer{
+    width:100%;
+    height: 80vh;
+    background-image: url("images/todo1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top:2rem;
+}
+@media screen and (max-width:768px) {
+    .imgContainer{
+        background-size: contain;
+        height:60vh;
+    }
+}
+
+.card{
+    border-radius: 7px;
+    box-shadow:0 0 20px 10px #f3f3f3;
+    overflow: hidden;
+    margin:1rem;
+}
+.card__h2,.card__body{
+    padding: 2rem 3rem;
+}
+
+.todo{
+    color:#796465;
+    font-size: 4vmin;
+}
+.card--primary .card__h2{
+    background-color: #C1666B;
+    color: #fff;
+}
+.card--secondary .card__h2{
+    background-color: #A9927D;
+    color: #fff;
+}
+.grid{
+    display: grid;
+    align-items: center;
+}
+@media screen and (min-width:768px) {
+    .grid--1x2{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+.testimonial{
+    padding:1rem;
+}
+.testimonial__image>img{
+    width:100%;
+}
+footer{
+    display: flex;
+    justify-content: space-around;
+    background: #98A886;
+    cursor: pointer;
+}
+.btn{
+    border-radius: 20px;
+    font-size: 2rem;
+    font-weight: 600;
+    padding:4px;
+    white-space: nowrap;
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+    color:#796465;
+}
+.btn .icon{
+    width:1rem;
+    height:1rem;
+    margin-right:1rem;
+    vertical-align: middle;
+   
+}
+.btn--small{
+    font-size: 1rem;
+}
+.input__label{
+    border:none;
+    outline:none;
+    font-size: 1rem;
+    color:#796465;
+}

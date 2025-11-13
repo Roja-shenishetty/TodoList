@@ -56,35 +56,44 @@ const winPatterns=[
     [3,4,5],
     [6,7,8]
 ];
-
+let count=0;
 boxes.forEach((box)=> {
     box.addEventListener("click",()=>{
         if(turnO){
             box.innerText="O";
-            turnO=false;
+           box.classList.add("red"); 
+           turnO=false;
         }
         else{
             box.innerText="X";
+            box.classList.add("orange");
             turnO=true;
         }
         box.disabled=true;
-        checkWinner();
+        count++;
+
+        let isWinner= checkWinner();
+        if(count===9 && !isWinner){
+            draw();
+        }
     });
 });
 
 const checkWinner=()=>{
-    for(let pattern of winPatterns){
-    let pos1val=boxes[pattern[0]].innerText;
-    let pos2val=boxes[pattern[1]].innerText;
-    let pos3val=boxes[pattern[2]].innerText;
-    if(pos1val!="" && pos2val!="" && pos3val!==""){
-    if(pos1val===pos2val && pos2val===pos3val){
-        console.log("winner",pos1val);
-        showWinner(pos1val);
-    }
-   }
-  }
-};
+        for(let pattern of winPatterns){
+        let pos1val=boxes[pattern[0]].innerText;
+        let pos2val=boxes[pattern[1]].innerText;
+        let pos3val=boxes[pattern[2]].innerText;
+        if(pos1val!="" && pos2val!="" && pos3val!==""){
+        if(pos1val===pos2val && pos2val===pos3val){
+            console.log("winner",pos1val);
+            showWinner(pos1val);
+            return true;
+        }
+           }
+          }
+        };
+
 const resetGame=()=>{
     turnO=true;
     enableBtns();
@@ -106,6 +115,10 @@ const showWinner=(winner)=>{
     msgContainer.classList.remove("hide");
     disableBtns();
 };
-
+const draw=()=>{
+    msg.innerText =`It's a Draw`;
+    msgContainer.classList.remove("hide");
+    disableBtns();  
+}
 newBtn.addEventListener("click",resetGame);
 reset.addEventListener("click",resetGame);

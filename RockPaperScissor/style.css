@@ -1,0 +1,75 @@
+*{
+    padding:0;
+    margin: 0;
+    box-sizing: border-box;
+    text-align: center;
+}
+body{
+    height:90vh;
+}
+h1{
+    background-color:#081b31;
+    color:#fff;
+    font-size:1.5rem;
+    height:5rem;
+    line-height: 5rem;
+}
+.choices{
+    display: flex;
+    justify-content: center;
+    gap:3rem;
+    height:25vmin;
+    margin:15vmin;
+}
+.btn{
+    width:20vmin;
+    height:20vmin;
+    border:none;
+    border-radius:200px;
+    cursor:pointer;
+    fill:lightyellow;
+    object-fit: cover;
+}
+.btn:hover{
+    opacity: 0.85;
+    border:1px solid black;
+    transform: scale(1.1);
+    transition: transform 0.3s  ease-in 0.2s;
+}
+.icon{
+    width:10vmin;
+    height:10vmin;
+}
+.rock{
+    background-color: lightcoral;
+}
+.paper{
+    background-color: lightblue;
+}
+.scissor{
+    background-color: lightgreen;
+}
+.score{
+    font-size: 1.5rem;
+    display: flex;
+    gap:2rem;
+    justify-content: center;
+    margin:5vmin;
+}
+.player{
+    color:darkgreen;
+}
+.computer{
+    color: darkred;
+}
+.msg-container{
+    margin-top: 5rem;
+}
+#msg{
+    background-color: #081b31;
+    color: #fff;
+    font-size: 1.5rem;
+    display: inline;
+    border-radius: 0.5rem;
+    padding: 1rem;
+}

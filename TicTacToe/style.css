@@ -44,7 +44,7 @@ h1{
     cursor:pointer;
 }
 .reset,.newBtn{
-    background-color: #b68997;
+    background-color: #b9a1a9;
     color:#A5243D;
     border-radius: 1rem;
     border:none;
@@ -54,6 +54,7 @@ h1{
     margin: 1rem;
     cursor: pointer;
 }
+
 .reset:hover,.newBtn:hover{
     background-color:#bda2aa ;
 }
@@ -71,4 +72,13 @@ h1{
 }
 .hide{
     display: none;
+}
+.red{
+    color: #9E6240;
+}
+.orange{
+    color: #CD4631;
+}
+.box:hover,.box:focus,.box:visited{
+    background-color:#b5b3b8;
 }
