@@ -52,7 +52,7 @@ a{
       height: 30vh;
     background-image: url("images/todo1.jpg");
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     margin-top:3rem;
     margin-bottom: 1rem;
 }
@@ -107,6 +107,7 @@ footer{
     justify-content: space-around;
     background: #98A886;
     cursor: pointer; 
+    margin-top: 3rem;
 }
 .btn{
     border-radius: 20px;
@@ -124,7 +125,7 @@ footer{
     color:#18333C;
    text-align: center;
    background-color:#98A886;
-    margin-top:-2rem;
+    margin-top:-1rem;
     border-radius: 100%;
     padding:1px 15px;
 }
