@@ -14,11 +14,16 @@ checkboxes.forEach((box)=>{
 
 const cards=document.querySelectorAll(".card");
 const del=document.querySelector(".delItems");
+
 del.addEventListener("click",()=>{
-  cards.forEach(card=>{
-    card.addEventListener("click",()=>card.remove());
+  const selected=document.querySelectorAll(".check__header:checked");
+  selected.forEach(checkbox=>{
+    checkbox.closest(".card").remove();
+    checkbox.closest(".grid").remove();
   });
-});
+  
+    
+  });
 
 const delgrocCheck=document.getElementById("delgrocCheck");
 
@@ -29,7 +34,6 @@ const delgrocCheck=document.getElementById("delgrocCheck");
          box.parentElement.remove();
        }
      }
-    console.log("delgroc");
   });
 
  const delworkCheck=document.getElementById("delworkCheck");
@@ -81,6 +85,7 @@ const label=document.createElement("label");
 
 checkbox.type='checkbox';
 checkbox.classList.add('check');
+checkbox.classList.add("groc");
 label.textContent=labelText;
 label.contentEditable=true;
 label.classList.add('todo');
@@ -109,6 +114,7 @@ const label=document.createElement("label");
 
 checkbox.type='checkbox';
 checkbox.classList.add('check');
+checkbox.classList.add("work");
 label.textContent=labelText;
 label.contentEditable=true;
 label.classList.add('todo');
@@ -137,6 +143,7 @@ const label=document.createElement("label");
 
 checkbox.type='checkbox';
 checkbox.classList.add('check');
+checkbox.classList.add("act");
 label.textContent=labelText;
 label.contentEditable=true;
 label.classList.add('todo');
@@ -165,6 +172,7 @@ const label=document.createElement("label");
 
 checkbox.type='checkbox';
 checkbox.classList.add('check');
+checkbox.classList.add("workout");
 label.textContent=labelText;
 label.contentEditable=true;
 label.classList.add('todo');
@@ -177,3 +185,34 @@ container.appendChild(div);
 labelInput.value="";
 });
 
+document.getElementById("submit").addEventListener("click",()=>{
+  const forms=document.querySelectorAll("#myForm");
+  let savedData=[];
+  forms.forEach((form,index)=>{
+    
+    let formData={};
+    checkboxes.forEach(checkbox=>{
+      formData[checkbox.name]=checkbox.checked;
+    });
+
+    savedData.push({
+      formNumber:index+1,
+      data:formData
+    });
+  });
+
+  localStorage.setItem("savedForms",JSON.stringify(savedData));
+  alert("All forms saved!");
+});
+
+
+window.addEventListener("load",()=>{
+  const saved=JSON.parse(localStorage.getItem("savedForms"));
+  if(!saved) return;
+  const forms=document.querySelectorAll("#myForm");
+  saved.forEach((formData,index)=>{
+    checkboxes.forEach(checkbox=>{
+      checkbox.checked=formData.data[checkbox.name];
+    });
+  });
+});
